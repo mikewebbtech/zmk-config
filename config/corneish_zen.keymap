@@ -77,7 +77,7 @@
         bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬──────────────┬─────────────╮
 // │  !          │  @          │  #          │  $          │  %          │       │  ^          │  &          │  *          │  (           │  )          │
-      &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT             &kp CARET     &kp AMPS   &kp KP─MULTIPLY  &kp LPAR       &kp RPAR    
+      &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT             &kp CARET     &kp AMPS   &kp MULTIPLY  &kp LPAR       &kp RPAR    
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────│       ├─────────────┼─────────────┼─────────────┼──────────────┼─────────────┤
 // │             │             │             │             │             │       │  ─          │  =          │  [          │  ]           │  \          │
       &trans        &trans        &trans        &trans        &trans                &kp MINUS     &kp EQUAL     &kp LBKT      &kp RBKT       &kp BSLH    
