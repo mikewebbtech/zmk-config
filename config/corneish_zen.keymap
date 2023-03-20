@@ -45,8 +45,8 @@
 // │    A         │    S        │    D        │    F        │    G        │      │    H        │    J        │    K         │    L        │    ;        │
      &kp A          &kp S         &kp D         &kp F         &kp G                 &kp H        &kp J         &kp K         &kp L         &kp SEMI
 // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
-// │              │    X        │    C        │    V        │    B        │      │    N        │    M        │    ,         │    .        │    /        │
-     &kp           &kp X         &kp C         &kp V         &kp B                 &kp N         &kp M         &kp COMMA      &kp DOT        &kp FSLH   
+// │    Z         │    X        │    C        │    V        │    B        │      │    N        │    M        │    ,         │    .        │    /        │
+     &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N         &kp M         &kp COMMA      &kp DOT        &kp FSLH   
 // ╰──────────────┴─────────────├─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┴─────────────╯
 //                              │   ESC/GUI   │  TAB/NUM    │   SPC       │      │   ENT/SHFT  │   SYM       │   CTRL       │
                                   &mt LGUI ESC  &lt NUM TAB    &kp SPACE          &mt RSHFT RET  &lt SYM BSPC  &kp RCTRL
