@@ -43,7 +43,7 @@
         compatible = "zmk,conditional-layers";
         // Define SYS layer as tri-state
         func_tristate {
-            if-layers = <NAV SYM>;
+            if-layers = <NUM SYM>;
             then-layer = <SYS>;
         };
     };
