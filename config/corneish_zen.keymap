@@ -14,6 +14,11 @@
 //  ╰────────╮ 30  31 32 │ │ 33  34  36 ╭───────╯
 //           ╰───────────╯ ╰────────────╯           
 
+
+&caps_word {
+    continue-list = <UNDERSCORE MINUS BSPC DEL N1 N2 N3 N4 N5 N6 N7 N8 N9 N0>;
+};
+
 / {
   chosen {
     zmk,matrix_transform = &five_column_transform;
@@ -30,9 +35,6 @@
             quick-tap-ms = <0>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
-        };
-        &caps_word {
-            continue-list = <UNDERSCORE MINUS BSPC DEL N1 N2 N3 N4 N5 N6 N7 N8 N9 N0>;
         };
     };
 
