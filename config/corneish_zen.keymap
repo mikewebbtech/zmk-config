@@ -31,8 +31,9 @@
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
-      &caps_word {
-        continue-list = <UNDERSCORE MINUS BSPC DEL N1 N2 N3 N4 N5 N6 N7 N8 N9 N0>;
+        &caps_word {
+            continue-list = <UNDERSCORE MINUS BSPC DEL N1 N2 N3 N4 N5 N6 N7 N8 N9 N0>;
+        };
     };
 
     keymap {
@@ -46,7 +47,7 @@
       &kp Q         &kp W          &kp E         &kp R         &kp T                &kp Y       &kp U         &kp I          &kp O          &kp P
 // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
 // │    A         │    S        │    D        │    F        │    G        │      │    H        │    J        │    K         │    L        │    ;        │
-     &hm LSHFT A     &hm LCTRL S         &kp D         &kp F         &kp G                &kp H         &kp J         &kp K         &kp L         &kp SEMI
+     &hm LSHFT A     &hm LCTRL S    &kp D         &kp F         &kp G                &kp H         &kp J         &kp K         &kp L         &kp SEMI
 // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
 // │    Z         │    X        │    C        │    V        │    B        │      │    N        │    M        │    ,         │    .        │    /        │
      &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N         &kp M         &kp COMMA      &kp DOT        &kp FSLH   
