@@ -56,28 +56,28 @@
       };
 
       lefth: Left_arrow {
-        compatible = "zmk,behavior-mod_morph;
+        compatible = "zmk,behavior-mod_morph";
         #binding-cells = <2>;
         bindings = <&kp H>, <&kp LEFT>;
         mods = <(&meh)>;
       };
 
       downj: down_arrow {
-        compatible = "zmk,behavior-mod_morph;
+        compatible = "zmk,behavior-mod_morph";
         #binding-cells = <2>;
         bindings = <&hm LGUI J>, <&kp DOWN>;
         mods = <(&meh)>;
       };
 
       upk: up_arrow {
-        compatible = "zmk,behavior-mod_morph;
+        compatible = "zmk,behavior-mod_morph";
         #binding-cells = <2>;
         bindings = <&hm LGUI K>, <&kp UP>;
         mods = <(&meh)>;
       };
 
       rightl: right_arrow {
-        compatible = "zmk,behavior-mod_morph;
+        compatible = "zmk,behavior-mod_morph";
         #binding-cells = <2>;
         bindings = <&hm LGUI L>, <&kp RIGHT>;
         mods = <(&meh)>;
