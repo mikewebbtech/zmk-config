@@ -52,7 +52,7 @@
         compatible = "zmk,behavior-tap-dance";
         #binding-cells = <0>;
         tapping-term-ms = <200>;
-        bindings = <&kp q>, <&kp grave>;
+        bindings = <&kp Q>, <&kp grave>;
       };
 
       lefth: Left_arrow {
