@@ -19,78 +19,136 @@
     chosen {
       zmk,matrix-transform = &five_column_transform;
     };
+  };
+
+&caps_word {
+    continue-list = <UNDERSCORE MINUS BSPC DEL N1 N2 N3 N4 N5 N6 N7 N8 N9 N0>;
 };
 
+/* Custom Behaviors , Require UROB ZMK patches */
 / {
     behaviors {
-        hm: home_row_mod {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;
-        };
+      hm: home_row_mod {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "balanced";
+        require-prior-idle-ms = <150>;
+        tapping-term-ms = <280>;
+        quick-tap-ms = <175>;
+        bindings = <&kp>, <&kp>;
     };
-};
+
+      meh: Meh_Key {
+        compatible = "zmk,behavior-tap-dance"
+        #binding-cells = <2>;
+        flavor = "balanced";
+        require-prior-idle-ms = <150>;
+        tapping-term-ms = <200>;
+        quick-tap-ms = <175>;
+        binding-cells = <&kp LS(LC(LA(LGUI)))>, <&kp g>;
+      }
+
+      tildq: tap_dance_0 {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&kp q>, <&kp grave>;
+      };
+
+      lefth: Left_arrow {
+        compatible = "zmk,behavior-mod_morph;
+        #binding-cells = <2>;
+        bindings = <&kp H>, <&kp LEFT>;
+        mods = <(&meh)>;
+      }
+
+      downj: down_arrow {
+        compatible = "zmk,behavior-mod_morph;
+        #binding-cells = <2>;
+        bindings = <&hm LGUI J>, <&kp DOWN>;
+        mods = <(&meh)>;
+      }
+
+      upk: up_arrow {
+        compatible = "zmk,behavior-mod_morph;
+        #binding-cells = <2>;
+        bindings = <&hm LGUI K>, <&kp UP>;
+        mods = <(&meh)>;
+      }
+
+      rightl: right_arrow {
+        compatible = "zmk,behavior-mod_morph;
+        #binding-cells = <2>;
+        bindings = <&hm LGUI L>, <&kp RIGHT>;
+        mods = <(&meh)>;
+      }
+    };
+  };
 
 / {
     keymap {
       compatible = "zmk,keymap";
 
       DEFAULT {
-          display-name = "QWERTY";
-      // ------------------------------------------------------------------
-      // |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |
-      // |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |
-      // |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |
-      //             | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-      bindings = <
-        &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P
-        &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI
-        &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH
-        &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
-      >;
-    };
+        display-name = "QWERTY";
+        bindings = <
+        // ╭──────────────┬─────────────┬─────────────┬─────────────┬─────────────╮      ╭─────────────┬─────────────┬──────────────┬─────────────┬─────────────╮
+        // │    Q/(~)     │      W      │    E        │    R        │    T        │      │    Y        │    U        │    I         │    O        │    P        │
+              &tildq           &kp W        &kp E         &kp R         &kp T                &kp Y         &kp U         &kp I          &kp O         &kp P
+        // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
+        // │    A         │    S        │    D        │    F        │    G        │      │ H/(←)       │ J/RGUI/(↓)  │ K/RALT/(↑)   │ L/RCTRL/(→) │   ;/:       │
+            &hm LSHFT A     &hm LCTRL S  &hm LALT D    &hm LGUI F      &meh                 &lefth        &downj         &upk          &rightl      &hm RSHFT ; 
+        // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
+        // │    Z         │    X        │    C        │    V        │    B        │      │    N        │    M        │    , <       │    . >      │    / ?      │
+              &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH   
+        // ╰──────────────┴─────────────├─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┴─────────────╯
+        //                              │  ESC/GUI     TAB/NUM      │    SPC      │      │ENT/SHFT/(CW)│BSP/SYM/[DEL]│    CTRL      │
+                                          &mt LGUI ESC   &mo 1         &kp SPACE             &kp RET     &mo 2         &kp RCTRL    
+        //                              ╰─────────────┴─────────────┴─────────────╯      ╰─────────────┴─────────────┴──────────────╯
+                &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P
+          &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI
+          &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH
+          &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
+        >;
+      };
 
-    NUMBER {
-      display-name = "NUMBER";
-      bindings = <
-      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-      // │    1 !      │     2 @     │    3 #      │      4 $    │    5        │       │     6       │     7       │     8       │     9       │    0        │
-            &kp N1          &kp N2      &kp N3        &kp N4        &kp N5                  &kp N6       &kp N7        &kp N8        &kp N9      &kp N0 
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // │             │             │             │             │    -        │       │     .       │     4       │     5       │     6       │   :         │
-            &trans          &trans      &trans        &trans      &kp MINUS             &kp DOT      &hm RGUI N4   &hm RALT N5   &hm RALT N6 &hm RSHFT COLON 
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // │  UNDO/bg%   │  CUT        │ COPY/SIGINIT   PASTE      │    _        │       │     0       │     1       │     2       │     3       │             │
-            &kp LC(Z)     &kp LC(X)     &kp LC(C)    &kp LC(V)      &kp UNDER              &kp N0        &kp N1       &kp N2        &kp N3       &trans
-      // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-      //                             │             │             │             │       │             │             │             │                            
-                                        &trans         &trans       &trans                &trans        &trans        &trans
-      //                             ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
-      //
-      >;
-    };
+      NUMBER {
+        display-name = "NUMBER";
+        bindings = <
+        // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+        // │    1 !      │     2 @     │    3 #      │      4 $    │    5        │       │     6       │     7       │     8       │     9       │    0        │
+              &kp N1          &kp N2      &kp N3        &kp N4        &kp N5                  &kp N6       &kp N7        &kp N8        &kp N9      &kp N0 
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+        // │             │             │             │             │    -        │       │     .       │     4       │     5       │     6       │   :         │
+              &trans          &trans      &trans        &trans      &kp MINUS             &kp DOT      &hm RGUI N4   &hm RALT N5   &hm RALT N6 &hm RSHFT COLON 
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+        // │  UNDO/bg%   │  CUT        │ COPY/SIGINIT   PASTE      │    _        │       │     0       │     1       │     2       │     3       │             │
+              &kp LC(Z)     &kp LC(X)     &kp LC(C)    &kp LC(V)      &kp UNDER              &kp N0        &kp N1       &kp N2        &kp N3       &trans
+        // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
+        //                             │             │             │             │       │             │             │             │                            
+                                          &trans         &trans       &trans                &trans        &trans        &trans
+        //                             ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
+        //
+        >;
+      };
 
-    SYMBOL {
-      display-name = "SYMBOL";
-      bindings = <
-      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬──────────────┬────────────╮
-      // │  !          │  @          │  #          │  $          │  %          │       │  ^          │  &          │  (          │  )           │  )         │
-            &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT             &kp CARET     &kp AMPS     &kp LPAR       &kp RPAR       &kp RPAR    
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────│       ├─────────────┼─────────────┼─────────────┼──────────────┼────────────┤
-      // │             │             │      "      │    `        │    *        │       │  ─          │  =          │  [          │  ]           │  "|"       │
-            &trans        &trans        &kp DQT       &kp GRAVE     &kp ASTRK             &kp MINUS     &kp EQUAL     &kp LBKT      &kp RBKT       &kp PIPE 
-      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────│       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      // │             │             │             │     ~       │             │       │  ─          │  +          │  {          │  }          │    \        │
-            &trans        &trans        &trans        &kp TILDE     &kp FSLH              &kp UNDER     &kp PLUS      &kp LBRC      &kp RBRC       &kp BSLH    
-      // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────│       ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-      //                             │             │             │             │       │             │             │             │                            
-                                        &trans         &trans        &trans                &trans        &trans        &trans
-      //                             ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
-      >;
+      SYMBOL {
+        display-name = "SYMBOL";
+        bindings = <
+        // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬──────────────┬────────────╮
+        // │  !          │  @          │  #          │  $          │  %          │       │  ^          │  &          │  (          │  )           │  )         │
+              &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT             &kp CARET     &kp AMPS     &kp LPAR       &kp RPAR       &kp RPAR    
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────│       ├─────────────┼─────────────┼─────────────┼──────────────┼────────────┤
+        // │             │             │      "      │    `        │    *        │       │  ─          │  =          │  [          │  ]           │  "|"       │
+              &trans        &trans        &kp DQT       &kp GRAVE     &kp ASTRK             &kp MINUS     &kp EQUAL     &kp LBKT      &kp RBKT       &kp PIPE 
+        // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────│       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+        // │             │             │             │     ~       │             │       │  ─          │  +          │  {          │  }          │    \        │
+              &trans        &trans        &trans        &kp TILDE     &kp FSLH              &kp UNDER     &kp PLUS      &kp LBRC      &kp RBRC       &kp BSLH    
+        // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────│       ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
+        //                             │             │             │             │       │             │             │             │                            
+                                          &trans         &trans        &trans                &trans        &trans        &trans
+        //                             ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
+        >;
+      };
     };
   };
-};
