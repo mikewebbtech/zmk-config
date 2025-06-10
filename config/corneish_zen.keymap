@@ -39,14 +39,14 @@
     };
 
       meh: Meh_Key {
-        compatible = "zmk,behavior-tap-dance";
+        compatible = "zmk,behavior-hold-tap";
         #binding-cells = <2>;
         flavor = "balanced";
         require-prior-idle-ms = <150>;
         tapping-term-ms = <200>;
         quick-tap-ms = <175>;
-        binding-cells = <&kp LS(LC(LA(LGUI)))>, <&kp g>;
-      }
+        binding-cells = <&kp LS(LC(LA(LGUI)))>, <&kp G>;
+      };
 
       tildq: tap_dance_0 {
         compatible = "zmk,behavior-tap-dance";
@@ -60,28 +60,28 @@
         #binding-cells = <2>;
         bindings = <&kp H>, <&kp LEFT>;
         mods = <(&meh)>;
-      }
+      };
 
       downj: down_arrow {
         compatible = "zmk,behavior-mod_morph;
         #binding-cells = <2>;
         bindings = <&hm LGUI J>, <&kp DOWN>;
         mods = <(&meh)>;
-      }
+      };
 
       upk: up_arrow {
         compatible = "zmk,behavior-mod_morph;
         #binding-cells = <2>;
         bindings = <&hm LGUI K>, <&kp UP>;
         mods = <(&meh)>;
-      }
+      };
 
       rightl: right_arrow {
         compatible = "zmk,behavior-mod_morph;
         #binding-cells = <2>;
         bindings = <&hm LGUI L>, <&kp RIGHT>;
         mods = <(&meh)>;
-      }
+      };
     };
   };
 
