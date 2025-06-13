@@ -47,29 +47,29 @@
 
       lefth: Left_arrow {
         compatible = "zmk,behavior-mod_morph";
-        #binding-cells = <2>;
+        #binding-cells = <0>;
         bindings = <&kp H>, <&kp LEFT>;
         mods = <MEH>;
       };
 
       downj: down_arrow {
         compatible = "zmk,behavior-mod_morph";
-        #binding-cells = <2>;
-        bindings = <&hm LGUI J>, <&kp DOWN>;
+        #binding-cells = <0>;
+        bindings = <&kp J>, <&kp DOWN>;
         mods = <MEH>;
       };
 
       upk: up_arrow {
         compatible = "zmk,behavior-mod_morph";
-        #binding-cells = <2>;
-        bindings = <&hm LGUI K>, <&kp UP>;
+        #binding-cells = <0>;
+        bindings = <&kp K>, <&kp UP>;
         mods = <MEH>;
       };
 
       rightl: right_arrow {
         compatible = "zmk,behavior-mod_morph";
-        #binding-cells = <2>;
-        bindings = <&hm LGUI L>, <&kp RIGHT>;
+        #binding-cells = <0>;
+        bindings = <&kp L>, <&kp RIGHT>;
         mods = <MEH>;
       };
     };
@@ -87,7 +87,7 @@
               &tildq           &kp W        &kp E         &kp R         &kp T                &kp Y         &kp U         &kp I          &kp O         &kp P
         // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
         // │    A         │    S        │    D        │    F        │    G        │      │ H/(←)       │ J/RGUI/(↓)  │ K/RALT/(↑)   │ L/RCTRL/(→) │   ;/:       │
-            &hm LSHFT A     &hm LCTRL S  &hm LALT D    &hm LGUI F      &hm MEH G          &lefth 0 0   &downj 0 0    &upk 0 0       &rightl 0 0   &hm RSHFT SEMICOLON 
+            &hm LSHFT A     &hm LCTRL S  &hm LALT D    &hm LGUI F      &hm MEH G         &hm LGUI &lefth &hm RGUI &downj &hm RALT &upk &hm RCTRL &rightl   &hm RSHFT SEMICOLON 
         // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
         // │    Z         │    X        │    C        │    V        │    B        │      │    N        │    M        │    , <       │    . >      │    / ?      │
               &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH   
