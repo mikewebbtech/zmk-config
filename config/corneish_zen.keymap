@@ -47,28 +47,28 @@
 
       lefth: Left_arrow {
         compatible = "zmk,behavior-mod_morph";
-        #binding-cells = <2>;
+        #binding-cells = <0>;
         bindings = <&kp H>, <&kp LEFT>;
         mods = <MEH>;
       };
 
       downj: down_arrow {
         compatible = "zmk,behavior-mod_morph";
-        #binding-cells = <2>;
+        #binding-cells = <0>;
         bindings = <&hm LGUI J>, <&kp DOWN>;
         mods = <MEH>;
       };
 
       upk: up_arrow {
         compatible = "zmk,behavior-mod_morph";
-        #binding-cells = <2>;
+        #binding-cells = <0>;
         bindings = <&hm LGUI K>, <&kp UP>;
         mods = <MEH>;
       };
 
       rightl: right_arrow {
         compatible = "zmk,behavior-mod_morph";
-        #binding-cells = <2>;
+        #binding-cells = <0>;
         bindings = <&hm LGUI L>, <&kp RIGHT>;
         mods = <MEH>;
       };
