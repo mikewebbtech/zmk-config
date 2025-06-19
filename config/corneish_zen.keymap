@@ -11,10 +11,11 @@
 
 #define MEH LC(LS(LALT))
 
-#define DEFAULT 0
-#define NUMBER 1 
-#define SYMBOL 2
-//#define SYS 3
+#define DEF 0
+#define NUM 1 
+#define SYM 2
+#define MOV 3
+#define SYS 4
 
 / {
     chosen {
@@ -59,13 +60,13 @@
               &tildq           &kp W        &kp E         &kp R         &kp T                &kp Y         &kp U         &kp I          &kp O         &kp P
         // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
         // │    A         │    S        │    D        │    F        │    G        │      │ H/(←)       │ J/RGUI/(↓)  │ K/RALT/(↑)   │ L/RCTRL/(→) │   ;/:       │
-            &hm LSHFT A     &hm LCTRL S  &hm LALT D    &hm LGUI F      &hm MEH G            &kp H       &hm RGUI J    &hm RALT K     &hm RCTRL L   &hm RSHFT SEMICOLON 
+            &hm LSHFT A     &hm LCTRL S  &hm LALT D    &hm LGUI F      &hm MEH G            &kp H       &hm RGUI J    &hm RALT K     &hm RCTRL L   &hm RSHFT SEMI 
         // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
         // │    Z         │    X        │    C        │    V        │    B        │      │    N        │    M        │    , <       │    . >      │    / ?      │
               &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH   
         // ╰──────────────┴─────────────├─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┴─────────────╯
         //                              │  ESC/GUI     TAB/NUM      │    SPC      │      │ENT/SHFT/(CW)│BSP/SYM/[DEL]│    CTRL      │
-                                          &mt LGUI ESC   &mo 1         &kp SPACE             &kp RET     &mo 2         &kp RCTRL    
+                                          &mt LGUI ESC  &lt NUM TAB  &kp SPACE             &kp RET     &mo 2         &kp RCTRL    
         //                              ╰─────────────┴─────────────┴─────────────╯      ╰─────────────┴─────────────┴──────────────╯
         >;
       };
