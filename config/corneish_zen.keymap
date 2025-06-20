@@ -72,8 +72,8 @@
         // │    Z         │    X        │    C        │    V        │    B        │      │    N        │    M        │    , <       │    . >      │    / ?      │
               &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH   
         // ╰──────────────┴─────────────├─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┴─────────────╯
-        //                              │  ESC/GUI     TAB/NUM      │    SPC      │      │ENT/SHFT/(CW)│BSP/SYM/[DEL]│    CTRL      │
-                                          &mt LGUI ESC  &lt NUM TAB  &kp SPACE             &s_shift      &lt SYM BSPC    &kp RCTRL    
+        //                              │  ESC/GUI     TAB/NUM      │    SPC      │      │ENT/SHFT/(CW)│   BSP/SYM   │    CTRL      │
+                                          &mt LGUI ESC  &lt NUM TAB  &kp SPACE             &s_shift      &lt SYM BSPC    &kp RCTRL
         //                              ╰─────────────┴─────────────┴─────────────╯      ╰─────────────┴─────────────┴──────────────╯
         >;
       };
@@ -86,12 +86,12 @@
               &kp N1          &kp N2      &kp N3        &kp N4        &kp N5                  &kp N6       &kp N7        &kp N8        &kp N9      &kp N0 
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         // │             │             │             │             │    -        │       │     .       │     4       │     5       │     6       │   :         │
-              &trans          &trans      &trans        &trans      &kp MINUS             &kp DOT      &hm RGUI N4   &hm RALT N5   &hm RALT N6 &hm RSHFT COLON 
+              &trans          &trans      &trans        &trans      &kp MINUS             &kp DOT      &hm RGUI N4   &hm RALT N5   &hm RALT N6    &hm RSHFT COLON 
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         // │  UNDO/bg%   │  CUT        │ COPY/SIGINIT   PASTE      │    _        │       │     0       │     1       │     2       │     3       │             │
               &kp LC(Z)     &kp LC(X)     &kp LC(C)    &kp LC(V)      &kp UNDER              &kp N0        &kp N1       &kp N2        &kp N3       &trans
         // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-        //                             │             │             │             │       │             │             │             │                            
+        //                             │             │             │             │       │             │             │             │
                                           &trans         &trans       &trans                &trans        &trans        &trans
         //                             ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
         //
@@ -105,14 +105,14 @@
         // │  !          │  @          │  #          │  $          │  %          │       │  ^          │  &          │  (          │  )           │  )         │
               &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT             &kp CARET     &kp AMPS     &kp LPAR       &kp RPAR       &kp RPAR    
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────│       ├─────────────┼─────────────┼─────────────┼──────────────┼────────────┤
-        // │             │             │      "      │    `        │    *        │       │  ─          │  =          │  [          │  ]           │  "|"       │
-              &trans        &trans        &kp DQT       &kp GRAVE     &kp ASTRK             &kp MINUS     &kp EQUAL     &kp LBKT      &kp RBKT       &kp PIPE 
+        // │             │             │     ~  `    │    "        │    *        │       │  ─          │  =          │  [          │  ]           │  "|"       │
+              &trans        &trans        &kp TILDE       &kp DQT     &kp ASTRK             &kp MINUS     &kp EQUAL     &kp LBKT      &kp RBKT       &kp PIPE 
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────│       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-        // │             │             │             │     ~       │             │       │  ─          │  +          │  {          │  }          │    \        │
-              &trans        &trans        &trans        &kp TILDE     &kp FSLH              &kp UNDER     &kp PLUS      &kp LBRC      &kp RBRC       &kp BSLH    
+        // │             │             │      '      │      `      │      /      │       │  ─          │  +          │  {          │  }          │    \        │
+              &trans        &trans        &kp APOS      &kp GRAVE    &kp FSLH              &kp UNDER     &kp PLUS      &kp LBRC      &kp RBRC       &kp BSLH    
         // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────│       ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-        //                             │             │             │             │       │             │             │             │                            
-                                          &trans         &trans        &trans                &trans        &trans        &trans
+        //                             │             │             │             │       │             │             │             │
+                                          &trans         &trans        &trans                &kp BSPC     &kp DEL        &trans
         //                             ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
         >;
       };
@@ -130,7 +130,7 @@
         // │             │             │             │             │             │       │             │             │             │             │             │
               &trans        &trans        &trans          &trans      &trans
         // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────│       ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-        //                             │             │             │             │       │             │             │             │                            
+        //                             │             │             │             │       │             │             │             │
                                           &trans         &trans        &trans                &trans        &trans        &trans
         //                             ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
         >;
