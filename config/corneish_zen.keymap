@@ -45,6 +45,13 @@
         tapping-term-ms = <200>;
         bindings = <&kp Q>, <&kp TILDE>;
       };
+
+      s_shift: tap_dance_1 {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&mt RSHFT RET>, <&caps_word>;
+      }
     };
 };
 
@@ -66,7 +73,7 @@
               &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH   
         // ╰──────────────┴─────────────├─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┴─────────────╯
         //                              │  ESC/GUI     TAB/NUM      │    SPC      │      │ENT/SHFT/(CW)│BSP/SYM/[DEL]│    CTRL      │
-                                          &mt LGUI ESC  &lt NUM TAB  &kp SPACE             &kp RET     &mo 2         &kp RCTRL    
+                                          &mt LGUI ESC  &lt NUM TAB  &kp SPACE             &s_shift      &lt SYM BSPC    &kp RCTRL    
         //                              ╰─────────────┴─────────────┴─────────────╯      ╰─────────────┴─────────────┴──────────────╯
         >;
       };
@@ -115,10 +122,10 @@
         bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬──────────────┬────────────╮
         // │             │             │             │             │             │       │             │             │             │              │            │
-              &trans        &trans           &trans       &trans      &trans           
+              &trans        &trans           &trans       &trans      &trans                &kp HOME      &kp PG_DN     &kp PG_UP      &kp END
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────│       ├─────────────┼─────────────┼─────────────┼──────────────┼────────────┤
         // │             │             │             │             │             │       │             │             │             │              │            │
-              &trans        &trans           &trans       &trans      &trans                  &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT
+              &trans        &trans           &trans       &trans      &trans                 kp LEFT      &kp DOWN      &kp UP         &kp RIGHT
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────│       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         // │             │             │             │             │             │       │             │             │             │             │             │
               &trans        &trans        &trans          &trans      &trans
