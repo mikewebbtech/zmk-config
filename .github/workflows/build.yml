@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 name: Build ZMK firmware
->>>>>>> 005adbc (Initial User Config.)
 on: [push, pull_request, workflow_dispatch]
 
 jobs:

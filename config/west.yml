@@ -1,12 +1,5 @@
 manifest:
   remotes:
-<<<<<<< HEAD
-    - name: urob
-      url-base: https://github.com/urob
-  projects:
-    - name: zmk
-      remote: urob
-=======
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
     # Additional modules containing boards/shields/custom code can be listed here as well
@@ -14,7 +7,6 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
->>>>>>> 005adbc (Initial User Config.)
       revision: main
       import: app/west.yml
   self:
