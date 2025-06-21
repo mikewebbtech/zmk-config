@@ -5,12 +5,12 @@
 #define DEF 0
 #define NUM 1 
 #define SYM 2
-#define MOV 3
-#define SYS 4
+#define SYS 3
+#define MOV 4
 
 / {
   chosen {
-    zmk,matrix-transform = &five_column_transform;
+    zmk,matrix-transform = &foostan_corne_5col_layout;
   };
 };
 
