@@ -42,6 +42,8 @@
     };
 
     tildq: tap_dance_0 {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
       tapping-term-ms = <200>;
       bindings = <&kp Q>, <&kp TILDE>;
     };
