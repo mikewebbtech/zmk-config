@@ -1,5 +1,5 @@
 [![Build ZMK firmware](https://github.com/mikewebbtech/zmk-config/actions/workflows/build.yml/badge.svg)](https://github.com/mikewebbtech/zmk-config/actions/workflows/build.yml)
-![](Zen_R3.png)
+![](img/Zen_R3.png)
 ![](img/KittyKeeb.jpeg)
 ![](img/my_keymap.png)
 ![](img/desktop.jpg)
